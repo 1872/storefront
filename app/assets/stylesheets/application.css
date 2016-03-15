@@ -1,0 +1,66 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ html,body{
+  background: #8B5F49 url(http://www.myfreetextures.com/wp-content/uploads/2013/07/old-brown-vintage-parchment-paper-texture.jpg) no-repeat top;
+    background-size: cover;
+ }
+ .container-fluid{
+  padding:0 5%;
+ }
+ h1{
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 12vw;
+  color:#73152D;
+ }
+ @media all and (min-width: 768px){
+   h1{
+    font-size: 6vw;
+   }
+}
+header h1{
+  text-align: center;
+}
+ h2{
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 7vw;
+  line-height: 1.25;
+  color:#73152D;
+ }
+ @media all and (min-width: 768px){
+   h2{
+    font-size: 2.5vw;
+   }
+}
+ .rating{
+  color:#73152D;
+ }
+ a{
+  color:#1A1830;
+ }
+ input{
+  color:#333;
+ }
+ .taco_single{
+  background: #8B5F49;
+  background:rgba(139,95,73,0.5);
+  padding:0 15px 15px 15px;
+  color:#FFF;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.35);
+  min-height: 490px;
+ }
+ .taco_single_image{
+  margin-bottom: 20px;
+ }

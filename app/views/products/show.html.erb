@@ -1,0 +1,18 @@
+  <section>
+    <div class="row">    
+      <div class="col-sm-9">
+        <div class="taco_single">
+            <h2><%= @taco.name %></h2>
+            <h3><%= @taco.sale_message %></h3>
+            <p>Price: <%= number_to_currency(@taco.price) %></p>
+            <p>Tax: <%= number_to_currency(@taco.tax) %></p>
+            <h4>Total: <%= number_to_currency(@taco.total) %></h4>
+            <img src="<%= @taco.image %>" alt="<%= @taco.name %>" class="img-responsive">
+            <p>Description: <%= @taco.description %></p>
+            <p>Rating: <span class="rating"><%= @taco.rating %></span></p>
+            <%= link_to "Edit", "/products/#{@taco.id}/edit", class: "btn btn-success" %>
+            <%= link_to "Delete", "/products/#{@taco.id}", {method: :delete, class: "btn btn-danger" }%>
+        </div>
+      </div>
+    </div>
+  </section>
