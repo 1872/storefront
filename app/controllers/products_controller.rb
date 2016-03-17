@@ -12,7 +12,12 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @taco = Product.find_by(id: params[:id])
+    if params[:id] == "random"
+      tacos = Product.all
+      @taco = tacos.sample
+    else
+      @taco = Product.find_by(id: params[:id])
+    end
   end
 
   def new
