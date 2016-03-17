@@ -6,6 +6,9 @@ class ProductsController < ApplicationController
     if sort_attribute && sort_order
       @tacos = Product.order(sort_attribute => sort_order)
     end
+    if params["discount"]
+      @tacos = Product.where("price < ?", 100)
+    end
   end
 
   def show
