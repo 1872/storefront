@@ -46,4 +46,10 @@ class ProductsController < ApplicationController
     flash[:warning] = "Taco destroyed!"
     redirect_to "/"
   end
+
+  def run_search
+    search_term = params[:search]
+    @tacos = Product.where("name LIKE ?", "%" + search_term + "%")
+    render "index.html.erb"
+  end
 end
