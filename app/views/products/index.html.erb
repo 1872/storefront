@@ -7,6 +7,7 @@
         <div class="col-sm-4">
           <div class="taco_single">
             <h2><%= taco.name %></h2>
+            <h4>Brought to you by: <%= taco.supplier.name %></h4>
             <p>Price: <%= taco.price %></p>
             <a href="/products/<%= taco.id %>" title="View Taco"><img src="<%= taco.image %>" alt="<%= taco.name %>" class="img-responsive taco_single_image"></a>
             <p>Description: <%= taco.description %></p>
