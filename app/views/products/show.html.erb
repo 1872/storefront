@@ -7,7 +7,9 @@
             <p>Price: <%= number_to_currency(@taco.price) %></p>
             <p>Tax: <%= number_to_currency(@taco.tax) %></p>
             <h4>Total: <%= number_to_currency(@taco.total) %></h4>
-            <img src="<%= @taco.image %>" alt="<%= @taco.name %>" class="img-responsive">
+            <% @taco.images.each do |image| %>
+              <img src="<%= image.src %>" alt="<%= @taco.name %>" class="img-responsive">
+            <% end %>
             <p>Description: <%= @taco.description %></p>
             <p>Rating: <span class="rating"><%= @taco.rating %></span></p>
             <%= link_to "Edit", "/products/#{@taco.id}/edit", class: "btn btn-success" %>

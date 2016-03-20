@@ -9,7 +9,7 @@
             <h2><%= taco.name %></h2>
             <h4>Brought to you by: <%= taco.supplier.name %></h4>
             <p>Price: <%= taco.price %></p>
-            <a href="/products/<%= taco.id %>" title="View Taco"><img src="<%= taco.image %>" alt="<%= taco.name %>" class="img-responsive taco_single_image"></a>
+            <a href="/products/<%= taco.id %>" title="View Taco"><img src="<%= taco.images.first.src %>" alt="<%= taco.name %>" class="img-responsive taco_single_image"></a>
             <p>Description: <%= taco.description %></p>
             <p>Rating: <span class="rating"><%= taco.rating %></span></p>
           </div>
