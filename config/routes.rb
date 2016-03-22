@@ -19,4 +19,7 @@ Rails.application.routes.draw do
   get "/suppliers/:id" => 'suppliers#show'
 
   post "/search" => 'products#run_search'
+
+  post "/orders" => 'orders#create'
+  get "/orders/:id" => 'orders#show'
 end
