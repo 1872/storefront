@@ -12,6 +12,13 @@
             <% end %>
             <p>Description: <%= @taco.description %></p>
             <p>Rating: <span class="rating"><%= @taco.rating %></span></p>
+            <%= form_tag "/orders", method: :post do %>
+              <div>
+                <%= label_tag :quantity %>
+                <%= text_field_tag :quantity %>
+                <%= submit_tag "Place order!" %>
+              </div>
+            <% end %>
             <%= link_to "Edit", "/products/#{@taco.id}/edit", class: "btn btn-success" %>
             <%= link_to "Delete", "/products/#{@taco.id}", {method: :delete, class: "btn btn-danger" }%>
         </div>
