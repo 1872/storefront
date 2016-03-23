@@ -22,10 +22,11 @@ class Product < ActiveRecord::Base
   end
 
   def printable_category_names
-    names = []
-    categories.each do |category|
-      names << category.name
-    end
-    names.join(", ")
+    # names = []
+    # categories.each do |category|
+    #   names << category.name
+    # end
+    # names.join(", ")
+    names = categories.map { |category| category.name }.join(", ")
   end
 end
