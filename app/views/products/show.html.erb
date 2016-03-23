@@ -3,12 +3,7 @@
       <div class="col-sm-9">
         <div class="taco_single">
             <h2><%= @taco.name %></h2>
-            <h4>Categories: </h4>
-            <ul>
-              <% @taco.categories.each do |category| %>
-                <li><%= category.name %></li>
-              <% end %>
-            </ul>
+            <h4>Categories: <%= @taco.printable_category_names %></h4>
             <h3><%= @taco.sale_message %></h3>
             <p>Price: <%= number_to_currency(@taco.price) %></p>
             <p>Tax: <%= number_to_currency(@taco.tax) %></p>
