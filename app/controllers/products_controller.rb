@@ -9,6 +9,9 @@ class ProductsController < ApplicationController
     if params["discount"]
       @tacos = Product.where("price < ?", 100)
     end
+    if params[:category]
+      @tacos = Category.find_by(name: params[:category]).products
+    end
   end
 
   def show
