@@ -18,7 +18,7 @@
                 <%= label_tag :quantity %>
                 <%= text_field_tag :quantity %>
                 <%= hidden_field_tag :product_id, @taco.id %>
-                <%= submit_tag "Place order!" %>
+                <%= submit_tag "Add to cart" %>
               </div>
             <% end %>
             <%= link_to "Edit", "/products/#{@taco.id}/edit", class: "btn btn-success" %>
