@@ -2,3 +2,7 @@
 <% @carted_products.each do |carted_product| %>
   <h2><%= carted_product.product.name %> (<%= carted_product.quantity %>)</h2>
 <% end %>
+
+<%= form_tag "/orders", method: :post do %>
+  <%= submit_tag "Buy now!" %>
+<% end %>
