@@ -24,6 +24,11 @@ class ProductsController < ApplicationController
   end
 
   def new
+    if current_user && current_user.admin
+      render 'new.html.erb'
+    else
+      redirect_to "/"
+    end
   end
 
   def create
