@@ -1,10 +1,13 @@
 <h1>Your order info</h1>
-<p>Order id: <%= 534253245 + @order.id %></p>
-<p>Purchased at: <%= @order.created_at %></p>
-<p>Product name: <%= @order.product.name %></p>
-<img src="<%= @order.product.images.first.src %>" alt="">
-<p>Email: <%= current_user.email %></p>
-<p>Quantity: <%= @order.quantity %></p>
-<p>Subtotal: <%= @order.subtotal %></p>
-<p>Tax: <%= @order.tax %></p>
-<p>Total: <%= @order.total %></p>
+<h3>Order id: <%= 534253245 + @order.id %></h3>
+<h3>Purchased at: <%= @order.created_at %></h3>
+<h3>Email: <%= current_user.email %></h3>
+
+<% @order.carted_products.each do |carted_product| %>
+  <h2>Name: <%= carted_product.product.name %></h2>
+  <h5>Quantity: <%= carted_product.quantity %></h5>
+<% end %>
+
+<h3>Subtotal: <%= @order.subtotal %></h3>
+<h3>Tax: <%= @order.tax %></h3>
+<h3>Total: <%= @order.total %></h3>
