@@ -4,27 +4,35 @@
           <div class="taco_single">
             <h1>Create a new recipe:</h1>
 
+            <% if @taco.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@taco.errors.count, "error") %> prohibited this taco from being saved:</h2>
+             
+                <ul>
+                <% @taco.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
             <%= form_tag '/products', method: :post do %>
 
             <div>
               <%= label_tag :name %>
-              <%= text_field_tag :name %>
+              <%= text_field_tag :name, @taco.name %>
             </div>
             <div>
               <%= label_tag :price %>
-              <%= text_field_tag :price %>
-            </div>
-            <div>
-              <%= label_tag :image %>
-              <%= text_field_tag :image %>
+              <%= text_field_tag :price, @taco.price %>
             </div>
             <div>
               <%= label_tag :description %>
-              <%= text_field_tag :description %>
+              <%= text_field_tag :description, @taco.description %>
             </div>
             <div>
               <%= label_tag :rating %>
-              <%= text_field_tag :rating %>
+              <%= text_field_tag :rating, @taco.rating %>
             </div>
             <%= submit_tag "Add Taco" %>
             <% end %>
