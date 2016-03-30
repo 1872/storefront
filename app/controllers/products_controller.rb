@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @taco = Product.new(id: params[:id], name: params[:name], price: params[:price], description: params[:description], rating: params[:rating])
+    @taco = Product.new(name: params[:name], price: params[:price], description: params[:description], rating: params[:rating])
     if @taco.save
       flash[:success] = "Taco made!"
       redirect_to "/products/#{@taco.id}"
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
 
   def update
     @taco = Product.find_by(id: params[:id])
-    if @taco.update(id: params[:id], name: params[:name], price: params[:price], description: params[:description], rating: params[:rating])
+    if @taco.update(name: params[:name], price: params[:price], description: params[:description], rating: params[:rating])
       flash[:success] = "This taco has been updated!"
       redirect_to "/products/#{@taco.id}"
     else
