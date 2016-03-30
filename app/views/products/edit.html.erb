@@ -26,6 +26,10 @@
   <%= label_tag :description %>
   <%= text_field_tag :description, @taco.description, class: "form-control" %>
 </div>
+<div>
+  <%= label_tag :supplier_id %>
+  <%= text_field_tag :supplier_id, @taco.supplier_id, class: "form-control" %>
+</div>
 <%= submit_tag "Update Taco", class: "btn btn-default" %>
 
 <% end %>

@@ -27,14 +27,26 @@ class ProductsController < ApplicationController
 
   def new
     @taco = Product.new
+    @suppliers = Supplier.all
     render "new.html.erb"
   end
 
   def create
-    @taco = Product.new(name: params[:name], price: params[:price], description: params[:description], rating: params[:rating])
+    @taco = Product.new(
+      name: params[:name],
+      price: params[:price],
+      description: params[:description],
+      rating: params[:rating],
+      supplier_id: params[:supplier][:supplier_id]
+    )
     if @taco.save
-      flash[:success] = "Taco made!"
-      redirect_to "/products/#{@taco.id}"
+      @image = Image.new(src: params[:image_url], product_id: @taco.id)
+      if @image.save
+        flash[:success] = "Taco made!"
+        redirect_to "/products/#{@taco.id}"
+      else
+        render "new.html.erb"
+      end
     else
       render "new.html.erb"
     end
