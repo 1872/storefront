@@ -32,6 +32,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @suppliers = Supplier.all
     @taco = Product.new(
       name: params[:name],
       price: params[:price],

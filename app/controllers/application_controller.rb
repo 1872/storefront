@@ -6,9 +6,21 @@ class ApplicationController < ActionController::Base
   before_action :calculate_cart_count
 
   def calculate_cart_count
-    # @cart_count = current_user.carted_products
-    #                           .where(status: 'carted')
-    #                           .count
-    @cart_count = 0
+    if current_user
+      puts "********************"
+      p session[:cart_count]
+      puts "********************"
+
+      if session[:cart_count]
+        @cart_count = session[:cart_count]
+      else
+        @cart_count = current_user.carted_products
+                                  .where(status: 'carted')
+                                  .count
+        session[:cart_count] = @cart_count
+      end
+    else
+      @cart_count = 0
+    end
   end
 end

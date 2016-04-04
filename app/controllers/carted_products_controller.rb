@@ -18,12 +18,14 @@ class CartedProductsController < ApplicationController
       quantity: params[:quantity],
       status: "carted"
     )
+    session[:cart_count] = nil
     redirect_to "/carted_products"
   end
 
   def destroy
     carted_product = CartedProduct.find_by(id: params[:id])
     carted_product.update(status: "removed")
+    session[:cart_count] = nil
     flash[:success] = "Product successfully removed!"
     redirect_to "/carted_products"
   end
